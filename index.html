@@ -47,29 +47,43 @@
 			</p>
 		</section>
         
-      		
+      		<!-- Quote -->
+		<section id="quotes" class="section section-2">
+            	<h3 class="title is-3">Quote of the Day</h3><div class="quote-box"><p id="quote">"Quote goes here..."</p><small id="author">- Author</small></div></section>	
+		
+		<!-- Content -->
+		<section  id="contents" class="section section-3"><h3 class="title is-3">Content</h3>
+                	<p class="intro">
+				Step 5: Add your content here. Whatever you want, just have fun! &#128507;<br/>
+			</p>
+		</section>
 		
 		<!-- Scripts (Javascript for Quote Generator in Section 2) -->
-        	<script>
-          	
-var url = "https://www.themealdb.com/api/json/v1/1/random.php";
-
-$.getJSON(url, function (data) {
-    console.log(data);
-    var output = data.meals;
-
-    for (var i = 0; i < output.length; i++) {
-        display.innerHTML +=
-
-            `<img src="${output[i].strMealThumb}" alt="${output[i].strMeal}"> <br>
-        
-        
-        ${output[i].strMeal} <br>
-        Category:  ${output[i].strCategory} <br>
-        Source: <a href="${output[i].strSource}">${output[i].strSource}</a>`;
-    }
-
-});
+        	<!-- jQuery CDN (include before using $.getJSON) -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		
+		<!-- Add this somewhere in your HTML body -->
+		<div id="display"></div>
+		
+		<script>          	
+		var url = "https://www.themealdb.com/api/json/v1/1/random.php";
+		
+		$.getJSON(url, function (data) {
+		    console.log(data);
+		    var output = data.meals;
+		
+		    for (var i = 0; i < output.length; i++) {
+		        display.innerHTML +=
+		
+		            `<img src="${output[i].strMealThumb}" alt="${output[i].strMeal}"> <br>
+		        
+		        
+		        ${output[i].strMeal} <br>
+		        Category:  ${output[i].strCategory} <br>
+		        Source: <a href="${output[i].strSource}">${output[i].strSource}</a>`;
+		    }
+		
+		});
     		</script>
 		<!--- ALL DONE - YAY YOU DID IT <3--->
 	</body>	
